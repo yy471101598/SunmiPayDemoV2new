@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "sm.pay.demo_V2"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 31
+        versionName "2.1.21"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'sunmi'
+            keyPassword 'SunmiPay'
+            storeFile file('../app/sunmi.jks')
+            storePassword 'sunmipay'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        release {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 配置输出apk的名称
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "SunmiPayDemoV2_" + defaultConfig.versionName + "_" + buildType.name + ".apk"
+            }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(
+            dir: 'libs', include: ['*.jar']
+    )
+    implementation 'com.android.support:design:28.0.0-rc02'
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
+    implementation 'com.android.support:recyclerview-v7:28.0.0-rc02'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    implementation(name: 'PayLib-release-1.4.9', ext: 'aar')
+
+}

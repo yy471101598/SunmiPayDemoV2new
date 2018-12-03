@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="sm.pay.demo">
+
+    <uses-permission android:name="com.sunmi.perm.LED" />
+    <uses-permission android:name="com.sunmi.perm.MSR" />
+    <uses-permission android:name="com.sunmi.perm.ICC" />
+    <uses-permission android:name="com.sunmi.perm.PINPAD" />
+    <uses-permission android:name="com.sunmi.perm.SECURITY" />
+    <uses-permission android:name="com.sunmi.perm.CONTACTLESS_CARD" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".basic.LedActivity" />
+        <activity android:name=".basic.BasicActivity" />
+        <activity android:name=".basic.BuzzerActivity" />
+        <activity android:name=".basic.GetSysParamActivity" />
+        <activity android:name=".basic.SetSysParamActivity" />
+        <activity android:name=".basic.ScreenModelActivity" />
+
+        <activity android:name=".card.CardActivity" />
+        <activity android:name=".card.MagActivity" />
+        <activity android:name=".card.ICActivity" />
+        <activity android:name=".card.M1Activity" />
+        <activity android:name=".card.SAMActivity" />
+        <activity android:name=".card.MIFAREUltralightCActivity" />
+        <activity android:name=".card.FELICAActivity" />
+        <activity android:name=".card.NISOActivity" />
+
+        <activity android:name=".security.SecurityActivity" />
+        <activity android:name=".security.SaveKeyPlainTextActivity" />
+        <activity android:name=".security.SaveKeyCipherTextActivity" />
+        <activity android:name=".security.CalcMacActivity" />
+        <activity android:name=".security.DataEncryptActivity" />
+        <activity android:name=".security.DataDecryptActivity" />
+        <activity android:name=".security.GetEncryptBySerialNumberActivity" />
+        <activity android:name=".security.DuKptSaveKeyActivity" />
+        <activity android:name=".security.DuKptCalcMacActivity" />
+        <activity android:name=".security.DuKptDataEncryptActivity" />
+        <activity android:name=".security.DuKptDataDecryptActivity" />
+        <activity android:name=".security.DuKptKSNOperateActivity" />
+
+        <activity android:name=".other.OtherActivity" />
+        <activity android:name=".other.VersionActivity" />
+        <activity android:name=".other.LanguageActivity" />
+
+        <activity android:name=".pin.PinPadActivity" />
+
+        <activity android:name=".emv.EMVActivity" />
+        <activity android:name=".emv.ICProcessActivity" />
+        <activity android:name=".emv.MagProcessActivity" />
+        <activity android:name=".card.MifareUtralightEv1Activity" />
+
+    </application>
+
+</manifest>
